@@ -75,50 +75,6 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="Sul-7j-SeN">
-            <objects>
-                <viewController id="JPB-xP-bIS" customClass="SearchViewController" customModule="Katchy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lab-1j-w8Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6A-c4-XU6">
-                                <rect key="frame" x="0.0" y="207" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yr1-A6-MWH">
-                                <rect key="frame" x="162" y="691" width="91" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.87725907560000005" green="0.75595998760000005" blue="0.79608130460000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="18"/>
-                                <color key="tintColor" red="0.87725907560000005" green="0.75595998760000005" blue="0.79608130460000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.084487862884998322" green="0.32257282733917236" blue="0.76035761833190918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchButtonPressed:" destination="JPB-xP-bIS" eventType="touchUpInside" id="1A7-eb-eA0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="eaV-iq-Zix"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Kpw-ix-75V">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FT9-o0-F36">
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="JPB-xP-bIS" id="JUF-RG-XmH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="pickerView" destination="y6A-c4-XU6" id="ebO-NM-2fD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GOS-Nt-8gX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1957" y="-619"/>
-        </scene>
         <!--Search List View Controller-->
         <scene sceneID="Xkb-fk-VAR">
             <objects>
@@ -160,19 +116,25 @@
                                 <action selector="backButtonPressed:" destination="dgM-cV-V8p" id="jUK-ba-0q7"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="uSJ-DT-rZ3">
+                            <connections>
+                                <action selector="editBarButtonPressed:" destination="dgM-cV-V8p" id="vJS-91-0zK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editBarButton" destination="uSJ-DT-rZ3" id="Noy-9s-QUc"/>
                         <outlet property="tableView" destination="vXg-qd-7VQ" id="a5H-ua-oFl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXs-tq-YPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4422" y="-291"/>
+            <point key="canvasLocation" x="3158" y="-291"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="GSw-kO-gTd">
             <objects>
-                <tableViewController id="ZQj-xh-NQX" customClass="SearchTableViewController" customModule="Katchy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Search Table View Controller" id="ZQj-xh-NQX" customClass="SearchTableViewController" customModule="Katchy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qj5-9F-MZn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,6 +330,7 @@
                             <outlet property="delegate" destination="ZQj-xh-NQX" id="k02-RK-zHA"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="NOA-G8-8eM"/>
                     <connections>
                         <outlet property="searchCollectionView" destination="YZt-i7-qF9" id="2iC-Fx-TAD"/>
                         <outlet property="searchPriceField" destination="CGq-jd-GZW" id="vAO-G8-pez"/>
@@ -379,7 +342,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzY-qB-Drj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5773.913043478261" y="-291.29464285714283"/>
+            <point key="canvasLocation" x="4426" y="-291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kx3-aS-lvc">
@@ -398,24 +361,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNt-N2-UjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="197" y="115"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yXm-Ck-Tfh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bni-rR-jVd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Or3-RQ-jL6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JPB-xP-bIS" kind="relationship" relationship="rootViewController" id="Jyk-4J-4Zu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IcZ-Bq-rab" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1265" y="-619"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x53-Cx-fER">
@@ -616,7 +561,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SYR-E2-Bv0" userLabel="Photo Image View">
-                                                                        <rect key="frame" x="-14" y="0.0" width="211" height="198"/>
+                                                                        <rect key="frame" x="-29" y="0.0" width="211" height="198"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -681,7 +626,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LlH-ws-yeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3548" y="-619"/>
+            <point key="canvasLocation" x="2071" y="-291"/>
         </scene>
     </scenes>
 </document>

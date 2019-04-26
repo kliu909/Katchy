@@ -12,7 +12,7 @@ class SearchListViewController: SearchViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     var items: Items!
   //  var itemName = ["Black Shorts", "Ripped Blue Jeans", "Pink T- Shirt"]
@@ -63,6 +63,18 @@ class SearchListViewController: SearchViewController {
         leaveViewController()
     }
 
+    @IBAction func editBarButtonPressed(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            editBarButton.title = "Edit"
+            
+        } else {
+            tableView.setEditing(true, animated: true)
+            editBarButton.title = "Done"
+        }
+    }
+        
+    
 }
 
 extension SearchListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -75,6 +87,12 @@ extension SearchListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = items.itemArray[indexPath.row].itemName
         //print(items.itemArray[indexPath.row].itemName)
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            items.itemArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }

@@ -39,6 +39,7 @@ class SearchTableViewController: SellTableViewController {
         sellSellerNameField.text = item.sellerName
         sellContactInfoField.text = item.contactInfo
     }
+   
 }
 
 
