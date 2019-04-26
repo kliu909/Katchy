@@ -54,7 +54,9 @@ class Item {
         guard let postingUserID = (Auth.auth().currentUser?.uid) else {
             print("*** ERROR: Could not save data because we don't have a valid postingUserID")
             return completion(false)
+            
         }
+        
        
         // Create the dictionary representing data we want to save
         let dataToSave: [String: Any] = self.dictionary

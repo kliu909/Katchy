@@ -68,6 +68,7 @@ class SellTableViewController: UITableViewController {
         
     }
     
+    
     func cameraOrLibraryAlert() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
        

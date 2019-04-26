@@ -11,6 +11,7 @@ import UIKit
 class ItemPhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     
+    
     @IBOutlet weak var searchImageView: UIImageView!
     
     var photo: Photo! {

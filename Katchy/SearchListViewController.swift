@@ -77,5 +77,4 @@ extension SearchListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
 }

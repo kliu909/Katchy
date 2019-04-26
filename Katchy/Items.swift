@@ -23,6 +23,7 @@ class Items {
             guard error == nil else {
                 print("*** ERROR: adding the snapshot listener \(error!.localizedDescription)")
                 return completed()
+                
             }
             self.itemArray = []
             // there are querySnapshot!.documents.count documents in teh spots snapshot
