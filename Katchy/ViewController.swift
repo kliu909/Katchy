@@ -122,6 +122,5 @@ extension ViewController: FUIAuthDelegate {
         loginViewController.view.addSubview(logoImageView) // Add ImageView to the login controller's main view
         return loginViewController
     }
-    
 
 }
