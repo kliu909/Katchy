@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>701279334274-du0afqe78qonermfmenk65l5o64ds4d9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.701279334274-du0afqe78qonermfmenk65l5o64ds4d9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD-k3CiGGdkfggykBlv4NBY34nlkLRagRE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>701279334274</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.liu.Katchy</string>
+	<key>PROJECT_ID</key>
+	<string>katchy-1e3dd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>katchy-1e3dd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:701279334274:ios:d03d878243ced79c</string>
+	<key>DATABASE_URL</key>
+	<string>https://katchy-1e3dd.firebaseio.com</string>
+</dict>
+</plist>
