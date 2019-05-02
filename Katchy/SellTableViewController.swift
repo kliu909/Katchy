@@ -19,29 +19,58 @@ class SellTableViewController: UITableViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var sellerNameField: UITextField!
     @IBOutlet weak var contactInfoField: UITextField!
-
+    @IBOutlet weak var photoButton: UIButton!
+    
      @IBOutlet weak var collectionView: UICollectionView!
     
     var item: Item!
     var photos: Photos!
+    var photo: Photo!
     var imagePicker = UIImagePickerController()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if item == nil {
-            item = Item()
-            photos = Photos()
-        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        photoButton.isHidden = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
     
         imagePicker.delegate = self
+        
+        if item == nil {
+            item = Item()
+            
+        }
+        photos = Photos()
+        photo = Photo()
+        updateDataFromInterface()
+        
     }
 
+//    override func viewWillAppear(_ animated: Bool) {
+//        photos.loadData(item: item) {
+//            self.collectionView.reloadData()
+//        }
+//    }
 
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "unwindFromSave" {
+//            self.updateDataFromInterface()
+//            item.saveData { success in
+//                if success {
+//                    self.leaveViewController()
+//                } else {
+//                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+//                }
+//            }
+//        }
+//    }
     
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
@@ -50,6 +79,7 @@ class SellTableViewController: UITableViewController {
         } else {
             navigationController?.popViewController(animated: true)
         }
+        
     }
     
     func showAlert(title: String, message: String) {
@@ -59,12 +89,33 @@ class SellTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func saveCancelAlert(title: String, message: String, segueIdentifier: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            self.item.saveData { success in
+                self.saveBarButton.title = "Done"
+                self.cancelBarButton.title = ""
+                self.navigationController?.setToolbarHidden(true, animated: true)
+                if segueIdentifier == "ShowSell" {
+                    self.performSegue(withIdentifier: segueIdentifier, sender: nil)
+                } else {
+                    self.cameraOrLibraryAlert()
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func updateDataFromInterface() {
         item.itemName = itemNameField.text!
         item.price =  priceField.text!
         item.description = descriptionTextView.text!
         item.sellerName = sellerNameField.text!
         item.contactInfo = contactInfoField.text!
+        
         
     }
     
@@ -76,7 +127,7 @@ class SellTableViewController: UITableViewController {
             self.accessCamera()
 
         }
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) {_ in
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
             self.accessLibrary()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -86,24 +137,31 @@ class SellTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    
+   
+    
     @IBAction func photoButtonPressed(_ sender: UIButton) {
-       
             cameraOrLibraryAlert()
+      
         }
         
  
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         self.updateDataFromInterface()
+        print("****** save button being pressed")
+        
         item.saveData { success in
-            
+
             if success {
+                print("*** save success")
                 self.leaveViewController()
+                //self.performSegue(withIdentifier: "SaveData", sender: nil)
             } else {
-                print("*** ERROR: Couldn't leave this view controller becausee data wasn't saved.")
+                print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
             }
             
+
         }
-        
     }
     
         @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
@@ -130,13 +188,17 @@ extension SellTableViewController: UINavigationControllerDelegate, UIImagePicker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let photo = Photo()
         photo.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
+        print("printing photo")
         dismiss(animated: true) {
-            
-            photo.saveData(item: self.item) { (success) in
+            print("**dismissed")
+          
+            photo.saveData(item: self.item) { success in
+                print("*******Save photo success")
                 self.photos.photoArray.append(photo)
                 self.collectionView.reloadData()
+                print(self.photos.photoArray.count)
             }
+      
         }
         
     }

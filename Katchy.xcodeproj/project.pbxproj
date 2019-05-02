@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		545567B0227749A500B176C3 /* SearchItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545567AF227749A500B176C3 /* SearchItemCollectionViewCell.swift */; };
 		54F2C773226E90800076620C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C772226E90800076620C /* AppDelegate.swift */; };
 		54F2C775226E90800076620C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C774226E90800076620C /* ViewController.swift */; };
 		54F2C778226E90800076620C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F2C776226E90800076620C /* Main.storyboard */; };
 		54F2C77A226E90820076620C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54F2C779226E90820076620C /* Assets.xcassets */; };
 		54F2C77D226E90820076620C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F2C77B226E90820076620C /* LaunchScreen.storyboard */; };
 		54F2C785226E91C90076620C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54F2C784226E91C90076620C /* GoogleService-Info.plist */; };
-		54F2C787226E9A840076620C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C786226E9A840076620C /* SearchViewController.swift */; };
 		54F2C789226E9B2C0076620C /* SellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C788226E9B2C0076620C /* SellTableViewController.swift */; };
 		54F2C78B226E9FA70076620C /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C78A226E9FA70076620C /* SearchListViewController.swift */; };
 		54F2C78F226EA9560076620C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2C78E226EA9560076620C /* SearchTableViewController.swift */; };
@@ -28,6 +28,7 @@
 /* Begin PBXFileReference section */
 		1A0F75641AE2B2E42E1F0D58 /* Pods-Katchy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Katchy.debug.xcconfig"; path = "Target Support Files/Pods-Katchy/Pods-Katchy.debug.xcconfig"; sourceTree = "<group>"; };
 		1E11867B2DA6089E3AC62B0C /* Pods_Katchy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Katchy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		545567AF227749A500B176C3 /* SearchItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		54F2C76F226E90800076620C /* Katchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Katchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F2C772226E90800076620C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54F2C774226E90800076620C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		54F2C77C226E90820076620C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54F2C77E226E90820076620C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54F2C784226E91C90076620C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		54F2C786226E9A840076620C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		54F2C788226E9B2C0076620C /* SellTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellTableViewController.swift; sourceTree = "<group>"; };
 		54F2C78A226E9FA70076620C /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		54F2C78E226EA9560076620C /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -102,11 +102,11 @@
 				54F2C794227160670076620C /* Photo.swift */,
 				54F2C7962271622E0076620C /* Photos.swift */,
 				54F2C7982271667E0076620C /* ItemPhotosCollectionViewCell.swift */,
+				545567AF227749A500B176C3 /* SearchItemCollectionViewCell.swift */,
 				54F2C790226EAAD90076620C /* Item.swift */,
 				54F2C792226EBC1F0076620C /* Items.swift */,
 				54F2C774226E90800076620C /* ViewController.swift */,
 				54F2C788226E9B2C0076620C /* SellTableViewController.swift */,
-				54F2C786226E9A840076620C /* SearchViewController.swift */,
 				54F2C78A226E9FA70076620C /* SearchListViewController.swift */,
 				54F2C78E226EA9560076620C /* SearchTableViewController.swift */,
 				54F2C776226E90800076620C /* Main.storyboard */,
@@ -291,11 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F2C791226EAAD90076620C /* Item.swift in Sources */,
-				54F2C787226E9A840076620C /* SearchViewController.swift in Sources */,
 				54F2C78F226EA9560076620C /* SearchTableViewController.swift in Sources */,
 				54F2C795227160670076620C /* Photo.swift in Sources */,
 				54F2C775226E90800076620C /* ViewController.swift in Sources */,
 				54F2C793226EBC1F0076620C /* Items.swift in Sources */,
+				545567B0227749A500B176C3 /* SearchItemCollectionViewCell.swift in Sources */,
 				54F2C78B226E9FA70076620C /* SearchListViewController.swift in Sources */,
 				54F2C789226E9B2C0076620C /* SellTableViewController.swift in Sources */,
 				54F2C7972271622E0076620C /* Photos.swift in Sources */,
@@ -450,6 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QUU756R9VU;
 				INFOPLIST_FILE = Katchy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,6 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QUU756R9VU;
 				INFOPLIST_FILE = Katchy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

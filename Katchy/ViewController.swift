@@ -16,20 +16,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var sellButton: UIButton!
     
     var authUI: FUIAuth!
-    
+    var item: Item!
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-      
-        
+  
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         
+      
+        searchButton.layer.cornerRadius = 8
+        sellButton.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 8
     }
     
 
@@ -51,9 +54,6 @@ class ViewController: UIViewController {
         }
     }
     
-   
-    
-    
     @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
         do {
             try authUI!.signOut()
@@ -67,20 +67,44 @@ class ViewController: UIViewController {
             print("*** ERROR: Couldn't sign out")
         }
     }
-
+//
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowSearch", sender: nil)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowSell" {
+//            let destination = segue.destination as! SellTableViewController
+//
+//        }
+//    }
    
+    
     @IBAction func sellButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowSell", sender: nil)
     }
     
-    
-    
+//    @IBAction func unwindFromSellTableViewController(segue: UIStoryboardSegue) {
+//        print("*** Unwind working")
+//        let sourceViewController = segue.source as! SellTableViewController
+//        print(item.itemName)
+//        self.item.itemName = sourceViewController.itemNameField.text!
+//        self.item.price = sourceViewController.priceField.text!
+//        self.item.description = sourceViewController.descriptionTextView.text!
+//        self.item.sellerName = sourceViewController.sellerNameField.text!
+//        self.item.contactInfo = sourceViewController.contactInfoField.text!
+//
+//        self.item.saveData { success in
+//        if success {
+//            print("saved")
+//        } else {
+//            print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+//        }
+//    }
+//
+//
+//    }
 }
-
 
 extension ViewController: FUIAuthDelegate {
     func application(_ app: UIApplication, open url: URL,

@@ -16,24 +16,25 @@ class Item {
     var sellerName: String
     var contactInfo: String
     var documentID: String
-    var image: UIImage
+    var likes: Int
     var dictionary: [String: Any] {
         return ["itemName": itemName, "price": price, "description":
-            description, "sellerName": sellerName, "contactInfo": contactInfo]
+            description, "sellerName": sellerName, "contactInfo": contactInfo, "likes": likes]
     }
     
-    init(itemName: String, price: String, description: String, sellerName: String, contactInfo: String, documentID: String, image:UIImage) {
+    init(itemName: String, price: String, description: String, sellerName: String, contactInfo: String, likes:Int, documentID: String)
+    {
         self.itemName = itemName
         self.price = price
         self.description = description
         self.sellerName = sellerName
         self.contactInfo = contactInfo
-        self.image = image
+        self.likes = likes
         self.documentID = documentID
     }
     
     convenience init() {
-        self.init(itemName: "", price: "", description: "", sellerName: "", contactInfo: "", documentID: "", image: UIImage())
+        self.init(itemName: "", price: "", description: "", sellerName: "", contactInfo: "", likes: 0, documentID: "")
     }
     
     
@@ -43,9 +44,8 @@ class Item {
         let description = dictionary["description"] as! String? ?? ""
         let sellerName = dictionary["sellerName"] as! String? ?? ""
         let contactInfo = dictionary["contactInfo"] as! String? ?? ""
-        let image = UIImage()
-        
-        self.init(itemName: itemName, price: price, description: description, sellerName: sellerName, contactInfo: contactInfo, documentID: "", image: image)
+       let likes = dictionary["likes"] as! Int? ?? 0
+        self.init(itemName: itemName, price: price, description: description, sellerName: sellerName, contactInfo: contactInfo, likes: likes, documentID: "" )
     }
     
     func saveData(completion: @escaping (Bool) -> ())  {

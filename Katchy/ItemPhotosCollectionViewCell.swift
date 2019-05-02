@@ -11,13 +11,14 @@ import UIKit
 class ItemPhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     
+  //  @IBOutlet weak var sellImageView: UIImageView!
     
-    @IBOutlet weak var searchImageView: UIImageView!
+
     
     var photo: Photo! {
         didSet {
             photoImageView.image = photo.image
-            searchImageView.image = photo.image
+         // sellImageView.image = photo.image
         }
     }
     
